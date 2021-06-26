@@ -56,6 +56,7 @@ if ($result) {
     }
     $encry = my_simple_crypt($new_id, 'e');
     echo "<script>alert('$student_name Registered Successfully for Admission with Ref No: $new_id ')</script>";
+    echo"<center><h3>Please Wait Mail is being sent to $father_email.....</h3></center>";
   ?>
     <script>
      window.location.replace("Mail?mail=<?php echo $father_email; ?>&msg=<?php echo "Thank you for applying $father_name, your child $student_name successfully registered for Admission with reference no: $new_id, you can continue the Admission process at the following link: https://admissions.sssvnbagepalli.in/OnlineApplication?ref=$encry.  Regards, Technical Team, Stark Tech Innovative Labs, Bengaluru" ?>&mail_type=admission_application");
