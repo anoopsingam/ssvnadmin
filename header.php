@@ -3,10 +3,7 @@
 
 	date_default_timezone_set("ASIA/KOLKATA");
 // Check if the user is logged in, if not then redirect him to login page
-$conn=mysqli_connect("localhost", "root", "", "sssvn");
-if(mysqli_connect_errno()){
-echo "Connection Fail".mysqli_connect_error();
-}
+include'database.php';
 
 
 
@@ -44,7 +41,7 @@ $data=mysqli_fetch_assoc($ask);
 $dt=$data['user_type'];
   $_SESSION['usertype']="$dt";
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login");
+    header("location: log");
     exit;
 }
 $theader=" SSSVN | Stark Tech Innovative Labs LLP";
