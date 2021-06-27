@@ -1,5 +1,5 @@
 <?php include'header.php';?>
-<title>Add Bus | Stark Tech</title>
+<title>Add Bus | <?php echo $theader;?></title>
 
 
 <form id="form1" name="form1" method="post" action="UploadBus">

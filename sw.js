@@ -10,7 +10,7 @@ if ('serviceWorker' in navigator) {
     });
   }  var CACHE_NAME = 'example';
   var urlsToCache = [
-    'login.php'
+    'log.php'
   ];
   
   self.addEventListener('install', function(event) {

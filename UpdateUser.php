@@ -1,5 +1,5 @@
 <?php include'header.php';?>
-<title>Update User | Stark Tech</title>
+<title>Update User | <?php echo $theader;?></title>
 <?php $dcry = my_simple_crypt( $_GET['id'], 'd' );
 ?> <?php if(empty($dcry)){?>
     <script>   window.location.replace("index");
@@ -21,7 +21,7 @@ if(mysqli_num_rows($ask)>0){
                             </center>
 
                                     <div class="row">
-                                        <div class="col-sm"><label for="">Username :</label> <input type="text" autocomplete="false" value="<?php echo $row['username']?>" name="username" id="" class="form-control"></div>
+                                        <div class="col-sm"><label for="">Username :</label> <input <?php if($row['username']=="principal"){echo "readonly";} ?> type="text" autocomplete="false" value="<?php echo $row['username']?>" name="username" id="" class="form-control"></div>
                                         <div class="col-sm"><label for="">Password/Mobile No : </label> <input type="text" autocomplete="false" placeholder="Please Create New Password" name="password" id="" class="form-control bg-light text-dark" required></div>
                                         <div class="col-sm"> <label for="">Email ID :</label><input type="text" autocomplete="false" value="<?php echo $row['emailid']?>" name="emailid" id="" class="form-control"></div>
                                     </div>

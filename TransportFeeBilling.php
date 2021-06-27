@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>
-<title>Transport Fee Enrollment | Stark Tech </title>
+<title>Transport Fee Enrollment | <?php echo $theader;?></title>
 
 <center>
     <form action="" method="post">
@@ -7,11 +7,11 @@
         <input  list="eid" name="studentid" style="width: min-content;" id="" autocomplete="off" placeholder="STARK2021**" class="form-control">
         <datalist id="eid">
             <?php
-            $query = mysqli_query($conn, "SELECT * FROM student_enrollment");
+            $query = mysqli_query($conn, "SELECT * FROM student_enrollment where status='APPROVED'");
 
             while ($row = mysqli_fetch_array($query)) {
             ?>
-                <option value="<?php echo $row['studentid']; ?>"> <?php echo $row['studentid']; ?></option>
+                <option value="<?php echo $row['studentid']; ?>"> <?php echo $row['student_name']; ?></option>
 
             <?php
             } ?>
@@ -27,7 +27,7 @@
             echo "<script>alert('Please Provide an Valid Input')</script>";
         } else {
 
-            $sql = "SELECT *FROM student_enrollment where enrollment ='$id' or studentid ='$id'";
+            $sql = "SELECT *FROM student_enrollment where status='APPROVED' and enrollment ='$id' or studentid ='$id'";
             $ask = mysqli_query($conn, $sql);
             if (mysqli_num_rows($ask) > 0) {
                 while ($row = mysqli_fetch_assoc($ask)) { ?>

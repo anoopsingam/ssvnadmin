@@ -1,5 +1,5 @@
 <?php include'header.php';?>
-<title>Add Events | Stark Tech</title>
+<title>Add Events | <?php echo $theader;?></title>
 <style>
             .col-sm{
                 padding: 5px;
@@ -15,7 +15,7 @@
             </div>
                     
                 <div class="row">
-                    <div class="col-sm"><label for="even_added_by">Even Added By :  </label><input type="text" class="form-control" name="even_added_by" value="<?php echo $_SESSION['username']?>" id="even_added_by" /></div>
+                    <div class="col-sm"><label for="even_added_by">Even Added By :  </label><input type="text" class="form-control" readonly name="even_added_by" value="<?php echo $_SESSION['username']?>" id="even_added_by" /></div>
                     <div class="col-sm"><label for="academic_year">Academic Year :  </label><select name="academic_year" id="academic_year" class="form-control">
 
 <option value="2021-2022">2021-2022</option>

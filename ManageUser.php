@@ -1,7 +1,6 @@
 <?php include "header.php";  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator"){ ?> 
 <title>
-    Manage Users | Stark Tech
-</title>
+    Manage Users | <?php echo $theader;?></title>
 
 <center>
     <h1 class="h1  text-muted  "> User Management Portal</h1>

@@ -3,7 +3,7 @@ session_start();
 session_unset();
 session_destroy();
 ?>
-<script>   window.location.replace("login");
+<script>   window.location.assign("log");
 </script> 
 <?php
 

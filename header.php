@@ -140,7 +140,7 @@ a{
                                 <span>Dashboard </span>
                             </a>
                         </li>
-                        <li class="sidebar-title">Admission's</li>
+                        <li class="sidebar-title badge bg-info text-light">Admission's</li>
                         <li <?php   if($active=="AddApplication" || $active=="ManageApplication"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
@@ -159,7 +159,7 @@ a{
                         <li <?php   if($active=="SearchEnrollment" || $active=="CheckStatus"|| $active=="PrintApplication"|| $active=="EditEnrollment"|| $active=="StudentRemarks"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-person-badge-fill"></i>
-                                <span>Enrolments</span>
+                                <span>Enrollments</span>
                             </a>
                             <ul <?php   if( $active=="SearchEnrollment"  || $active=="CheckStatus"|| $active=="PrintApplication" || $active=="EditEnrollment"|| $active=="StudentRemarks"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
                                 <li class="submenu-item ">
@@ -171,15 +171,22 @@ a{
                                 <li class="submenu-item ">
                                     <a href="PrintApplication">Print Enrolment Application </a>
                                 </li>
+                                <?php	if( ($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator")||($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="principal") ){ ?>
+
                                 <li class="submenu-item ">
                                     <a href="EditEnrollment">Enrolment Edit</a>
                                 </li>
+                                <?php }?>
+                                <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
+
                                 <li class="submenu-item ">
                                     <a href="StudentRemarks">Remarks</a>
                                 </li>
+                                <?php }?>
+
                             </ul>
                         </li>
-                        <li class="sidebar-title">Finance</li>
+                        <li class="sidebar-title badge bg-primary text-light">Finance</li>
                         <li <?php   if($active=="AddTutionFee" || $active=="ModifyTutionFee"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-bank"></i>
@@ -189,10 +196,11 @@ a{
                                 <li class="submenu-item ">
                                     <a href="AddTutionFee">Add Tuition Fee</a>
                                 </li>
+                                <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
                                 <li class="submenu-item ">
                                     <a href="ModifyTutionFee">Modify Tuition Fee</a>
                                 </li>
-                                
+                                <?php }?>
                             </ul>
                         </li>
                         <li <?php   if($active=="AddUbsFee" || $active=="ModifyUbsFee"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
@@ -204,10 +212,12 @@ a{
                                 <li class="submenu-item ">
                                     <a href="AddUbsFee">Add UBS Fee</a>
                                 </li>
+                                <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
                                 <li class="submenu-item ">
                                     <a href="ModifyUbsFee">Modify UBS Fee</a>
                                 </li>
-                                
+                                <?php }?>
+
                             </ul>
                         </li>
                         <li <?php   if($active=="FeePayment" || $active=="GenerateTutionFeeReceipt" || $active=="DiscountApproval"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
@@ -219,38 +229,110 @@ a{
                                 <li class="submenu-item ">
                                     <a href="FeePayment">Collect Fee</a>
                                 </li>
+                                <?php if($data['user_type']=="ADMIN"){ ?>
                                 <li class="submenu-item ">
                                     <a href="DiscountApproval">Discount Approval</a>
                                 </li>
+                                <?php }?>
                                 <li class="submenu-item ">
                                     <a href="GenerateTutionFeeReceipt">Print Fee Receipt </a>
                                 </li>
                                 
                             </ul>
                         </li>
-                    
-                        <li class="sidebar-title">Raise Support</li>
+                        <li class="sidebar-title badge bg-warning text-dark">Transport</li>
+                        <li <?php   if($active=="AddBus" || $active=="AddStages"|| $active=="ModifyStages"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                            <a href="#" class='sidebar-link'>
+                            <i class="bi bi-truck"></i>
+                                <span>Bus Management</span>
+                            </a>
+                            <ul <?php   if( $active=="AddBus"  || $active=="AddStages"|| $active=="ModifyStages"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                                <li class="submenu-item ">
+                                    <a href="AddBus">Add Bus</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="AddStages">Stages Fare <i class="bi bi-cash-coin"></i></a>
+                                </li>
+                                <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
+                                <li class="submenu-item ">
+                                    <a href="ModifyStages">Modify Stages  </i></a>
+                                </li>
+                                <?php }?>
+
+                            </ul>
+                        </li>
+                      
+                        <li <?php   if($active=="TransportFeeBilling" ){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                            <a href="#" class='sidebar-link'>
+                            <i class="bi bi-person-plus-fill"></i>
+                                <span>Transport Enrollment</span>
+                            </a>
+                            <ul <?php   if( $active=="TransportFeeBilling"  ){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                                <li class="submenu-item ">
+                                    <a href="TransportFeeBilling">Enroll Student</a>
+                                </li>
+                                <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
+                                <li class="submenu-item ">
+                                    <a href="#">Modify Enrollment <i class="bi bi-slash-circle-fill"></i></a>
+                                </li>
+                                <?php }?>
+
+                                
+                            </ul>
+                        </li>
+                        <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
+                         <li class="sidebar-title badge bg-dark text-light">User's</li>
+                        <li <?php   if($active=="AddUser" || $active=="ManageUser"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                            <a href="#" class='sidebar-link'>
+                            <i class="bi bi-person-fill"></i>
+                                <span>User Management</span>
+                            </a>
+                            <ul <?php   if( $active=="AddUser"  || $active=="ManageUser"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                                <li class="submenu-item ">
+                                    <a href="AddUser">Add Users</a>
+                                </li>
+                                <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
+                                <li class="submenu-item ">
+                                    <a href="ManageUser">Manage Users</a>
+                                </li>
+                                <?php }?>
+
+                            </ul>
+                        </li> 
+                        <?php }?>
+                         <li class="sidebar-title badge bg-success text-light">Events</li>
+                        <li <?php   if($active=="AddEvents" || $active=="ManageEvents"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                            <a href="#" class='sidebar-link'>
+                            <i class="bi bi-calendar-day-fill"></i>
+                                <span>Event Management</span>
+                            </a>
+                            <ul <?php   if( $active=="AddEvents"  || $active=="ManageEvents"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                                <li class="submenu-item ">
+                                    <a href="AddEvents">Add Event</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ManageEvents">Manage Events</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="sidebar-title badge bg-danger text-light"><a>Raise Support</a></li>
 
                         <li class="sidebar-item  ">
-                            <a href="https://zuramai.github.io/mazer/docs" class='sidebar-link'>
+                            <a href="mailto:support@starktechlabs.in?cc=anoopnarayan@starktechlabs.in,harisceo@starktechlabs.in,arvindks@starktechlabs.in&subject=Tech%20Support%20for%20SSSVN,BAGEPALLI%20Login%20Portal&body=Dear%20Sir%2FMa'am%2C%0D%0AGreetings%20To%20Stark%20Tech%20Innovative%20labs%2C%0D%0AWe%20wanted%20to%20have%20a%20Support%20for%20Portal%20with%20the%20following%20Issues%20%3A-%0D%0A%0D%0Aplease%20Specify%20it%20%0D%0A%0D%0A%0D%0AThanking%20You%2C" class='sidebar-link'>
                                 <i class="bi bi-life-preserver"></i>
-                                <span>Documentation</span>
+                                <span>Mail us</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item  ">
-                            <a href="https://github.com/zuramai/mazer/blob/main/CONTRIBUTING.md" class='sidebar-link'>
-                                <i class="bi bi-puzzle"></i>
-                                <span>Contribute</span>
+                            <a href="tel:+91-98861162566" class='sidebar-link'>
+                                <i class="bi bi-telephone-fill"></i>
+                                <span>Call US <br> <small>+91-9886162566</small></span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item  ">
-                            <a href="https://github.com/zuramai/mazer#donate" class='sidebar-link'>
-                                <i class="bi bi-cash"></i>
-                                <span>Donate</span>
-                            </a>
-                        </li>
+                       
 
                     </ul>
                 </div>
@@ -265,7 +347,7 @@ a{
             </header>
 
             <div class="page-heading">
-                <h5><a href="index" class="text-muted">Dashboard</a> / <span id="demo"></span></h5>
+                <h5><a href="index" class="text-muted">Dashboard</a> / <span id="demo"></span> / <span><a href="logout"><button class="badge bg-danger text-light">Logout</button></a></span></h5>
             </div>
             <div class="page-content">
         

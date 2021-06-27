@@ -1,7 +1,7 @@
 
 
 <?php include "header.php";  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator"){ ?> 
-<title>Update Stages | Stark Tech</title>
+<title>Update Stages | <?php echo $theader;?></title>
 <?php $dcry = my_simple_crypt($_GET['id'], 'd');
 ?> <?php if (empty($dcry)) {?>
     <script>   window.location.replace("index");

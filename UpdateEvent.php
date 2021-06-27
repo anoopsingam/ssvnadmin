@@ -1,5 +1,5 @@
 <?php include'header.php';?>
-<title>Update User | Stark Tech</title>
+<title>Update User | <?php echo $theader;?></title>
 <?php $dcry = my_simple_crypt( $_GET['id'], 'd' );
 ?> <?php if(empty($dcry)){?>
     <script>   window.location.replace("index");

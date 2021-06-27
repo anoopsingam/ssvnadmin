@@ -1,7 +1,6 @@
 <?php include 'header.php'; ?>
 <title>
-    Manage Events | Stark Tech
-</title>
+    Manage Events | <?php echo $theader;?></title>
 
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>

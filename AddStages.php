@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>
-<title>Add Stages | Stark Tech</title>
+<title>Add Stages | <?php echo $theader;?></title>
 <form id="form1" name="form1" method="post" action="UploadStages">
 <legend>  <center>
         <h4 class="text-muted">Please Route For Stages</h4>
