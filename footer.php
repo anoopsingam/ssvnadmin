@@ -6,7 +6,7 @@
     <center>
     <i class="fa fa-copyright" aria-hidden="true"></i> Copyrights <i class="fa fa-copyright" aria-hidden="true"></i> <?php echo date("Y");?> Designed & Developed by <a target="_blank" style="text-decoration: none;" href="https://starktechlabs.in"><strong>Stark Tech Innovative Labs</strong></a> With <span class="text-danger"><i class="bi bi-heart"></i></span> <br>
         Device Info :[<span id="info"></span> <?php echo "Protocol :-".$_SERVER['SERVER_PROTOCOL']?>]
-       <!-- <br><?php  print_r($_SESSION) ; echo session_id();?> -->
+    
 
     </center>
 </small>

@@ -153,25 +153,25 @@ a{
                                
                             </ul>
                         </li>
-                        <li <?php   if($active=="SearchEnrollment" || $active=="CheckStatus"|| $active=="PrintApplication"|| $active=="EditEnrollment"|| $active=="StudentRemarks"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                        <li <?php   if($active=="SearchEnrollment" || $active=="CheckStatus" || $active=="PrintApplication"|| $active=="EditEnrollment"|| $active=="StudentRemarks"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-person-badge-fill"></i>
                                 <span>Enrollments</span>
                             </a>
-                            <ul <?php   if( $active=="SearchEnrollment"  || $active=="CheckStatus"|| $active=="PrintApplication" || $active=="EditEnrollment"|| $active=="StudentRemarks"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                            <ul <?php   if( $active=="SearchEnrollment"  || $active=="CheckStatus" || $active=="PrintApplication" || $active=="EditEnrollment"|| $active=="StudentRemarks"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
                                 <li class="submenu-item ">
                                     <a href="SearchEnrollment">New Enrollment</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="CheckStatus">Check Enrolment Status </a>
+                                    <a href="CheckStatus">Check Enrollment Status </a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="PrintApplication">Print Enrolment Application </a>
+                                    <a href="PrintApplication">Print Enrollment Application </a>
                                 </li>
                                 <?php	if( ($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator")||($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="principal") ){ ?>
 
                                 <li class="submenu-item ">
-                                    <a href="EditEnrollment">Enrolment Edit</a>
+                                    <a href="EditEnrollment"> Edit Enrollment </a>
                                 </li>
                                 <?php }?>
                                 <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
@@ -183,7 +183,7 @@ a{
 
                             </ul>
                         </li>
-                        <li class="sidebar-title badge bg-primary text-light">Finance</li>
+                        <li class="sidebar-title badge bg-success text-light">Finance</li>
                         <li <?php   if($active=="AddTutionFee" || $active=="ModifyTutionFee"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-bank"></i>
@@ -297,7 +297,7 @@ a{
                             </ul>
                         </li> 
                         <?php }?>
-                         <li class="sidebar-title badge bg-success text-light">Events</li>
+                         <li class="sidebar-title badge bg-primary text-light">Events</li>
                         <li <?php   if($active=="AddEvents" || $active=="ManageEvents"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-calendar-day-fill"></i>
@@ -309,6 +309,25 @@ a{
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="ManageEvents">Manage Events</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="sidebar-title badge bg-light text-dark">Reports</li>
+                        <li <?php   if($active=="FeeReportCustom" || $active=="UbsReport"|| $active=="ClassFeeReport"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                            <a href="#" class='sidebar-link'>
+                            <i class="bi bi-file-earmark-medical"></i>
+                                <span>Finance</span>
+                            </a>
+                            <ul <?php   if( $active=="FeeReportCustom"  || $active=="UbsReport"|| $active=="ClassFeeReport"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                                <li class="submenu-item ">
+                                    <a href="FeeReportCustom">Fee Report(Custom)</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="UbsReport">UBS Fee Report</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ClassFeeReport">Class Fee Report</a>
                                 </li>
                                 
                             </ul>

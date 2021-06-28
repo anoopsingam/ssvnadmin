@@ -4,7 +4,7 @@
   "short_name": "SSSVN ERP",
   "description": "School Management System",
   "lang": "en-IN",
-  "start_url": "login.php",
+  "start_url": "log.php",
   "display": "standalone",
   "background_color": "#0d6efd",
   "orientation": "any",

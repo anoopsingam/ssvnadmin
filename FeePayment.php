@@ -137,7 +137,7 @@
                                                                                     $r = mysqli_fetch_array($result);
                                                                                     $str = $r['str'];
                                                                                     if ($str == "") {
-                                                                                        echo "INSTALMENT-1";
+                                                                                        echo "INSTALLMENT-1";
                                                                                     } else {
                                                                                         echo ++$str;
                                                                                     }
