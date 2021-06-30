@@ -186,7 +186,7 @@ window.location.assign("FeePayment")
             $result = mysqli_query($conn, $query);
         }
         if ($result) {
-            if ($installment=="INSTALMENT-1") {
+            if ($installment=="INSTALLMENT-1") {
                   $sql="INSERT INTO `balance_fee`( `student_id`, `tution_fee_paid`, `tution_balance_fee`, `tution_fee_discount`, `transport_fee_paid`, `transport_balance`, `transport_fee_discount`, `ubs_fee_paid`, `ubs_balance`, `ubs_fee_discount`, `class`, `sec`, `academic_year`, `updated_date`, `installment`, `tution`, `ubs`, `transport`) VALUES
                                             ('$student_id','$past_tution','$balance_amount','$tution_dis','$past_transport','$transport_fee_balance','$transport_dis','$past_ubs','$ubs_fee_balance','$ubs_dis','$present_class','$present_section','$academic_year','$billing_date','$installment', '$tution', '$ubs', '$transport')";
                 if (mysqli_query($conn, $sql)) {
@@ -194,7 +194,7 @@ window.location.assign("FeePayment")
                 } else {
                      $state="New Balance Sheet Failed";
                 }
-            } elseif ($installment!="INSTALMENT-1") {
+            } elseif ($installment!="INSTALLMENT-1") {
                  $sql2="UPDATE `balance_fee` SET `tution_balance_fee`='$balance_amount',`tution_fee_paid`='$past_tution', `tution_fee_discount`='$tution_dis',`transport_fee_paid`='$past_transport',`transport_balance`='$transport_fee_balance',`transport_fee_discount`='$transport_dis',`ubs_fee_paid`='$past_ubs',`ubs_balance`='$ubs_fee_balance',`ubs_fee_discount`='$ubs_dis',`class`='$present_class',`sec`='$present_section',`academic_year`='$academic_year',`updated_date`='$billing_date',`installment`='$installment', `tution`='$tution', `ubs`='$ubs', `transport`='$transport' WHERE student_id='$student_id'";
                 if (mysqli_query($conn, $sql2)) {
                      $state="Updated Balance Sheet";
@@ -229,16 +229,22 @@ window.location.assign("FeePayment")
             <script>
                     alert("<?php echo " $student_name has Paid $installment Successfully Bill No: $bill_no. If Discount is Included please wait for Approval..!! $state"; ?>");
                     </script>
-            <?php echo"<center><h3>Mail is being sent to $student_mail please wait ......</h3></center>"; ?>
+            <?php  if($student_mail="**"){ ?>
+                <script>
+                                    window.location.assign("FeePayment");
+
+                </script>
+
+          <?php  }else{
+                echo"<center><h3>Mail is being sent to $student_mail please wait ......</h3></center>"; ?>
 
             <script>
 
-                    window.location.assign("Mail?mail=<?php echo"$student_mail";?>&mail_type=Payment&mode=fee_bill&<?php echo http_build_query($msg);?> ");
+                    window.location.assign("Mail?mail=<?php echo"$student_mail"; ?>&mail_type=Payment&mode=fee_bill&<?php echo http_build_query($msg); ?> ");
                 
             </script>
         <?php
-        
-        } else {
+            } } else {
             echo "cant able to do transaction !!!!".mysqli_error($conn);
         }
     }
