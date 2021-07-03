@@ -422,7 +422,7 @@ a{
                             </ul>
                         </li>
                         <li class="sidebar-title badge bg-light text-dark">Reports</li>
-                        <li <?php   if ($active=="FeeReportCustom" || $active=="UbsReport"|| $active=="ClassFeeReport") {
+                        <li <?php   if ($active=="FeeReportCustom" || $active=="UbsReport"|| $active=="ClassFeeReport"|| $active=="LoginFeeReport") {
                            echo 'class="sidebar-item active has-sub"';
                        } else {
                            echo 'class="sidebar-item has-sub"';
@@ -431,7 +431,7 @@ a{
                             <i class="bi bi-file-earmark-medical"></i>
                                 <span>Finance</span>
                             </a>
-                            <ul <?php   if ($active=="FeeReportCustom"  || $active=="UbsReport"|| $active=="ClassFeeReport") {
+                            <ul <?php   if ($active=="FeeReportCustom"  || $active=="UbsReport"|| $active=="ClassFeeReport"|| $active=="LoginFeeReport") {
                            echo 'class="submenu active"';
                        } else {
                            echo 'class="submenu "';
@@ -441,6 +441,9 @@ a{
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="UbsReport">UBS Fee Report</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="LoginFeeReport">Login Fee Report</a>
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="ClassFeeReport">Class Fee Report</a>
