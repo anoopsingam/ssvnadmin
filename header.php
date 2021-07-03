@@ -128,6 +128,15 @@ a{
                     </div>
                 </div>
                 <div class="sidebar-menu">
+
+                <?php  if( $_SESSION['usertype']=="TEACHER" ) { ?>
+                    <ul class="menu">
+                       
+
+                      
+                       <?php } else{ ?>
+
+
                     <ul class="menu">
                        
 
@@ -138,12 +147,20 @@ a{
                             </a>
                         </li>
                         <li class="sidebar-title badge bg-info text-light">Admission's</li>
-                        <li <?php   if($active=="AddApplication" || $active=="ManageApplication"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                        <li <?php   if ($active=="AddApplication" || $active=="ManageApplication") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
                                 <span>Applications</span>
                             </a>
-                            <ul <?php   if( $active=="AddApplication" || $active=="ManageApplication"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                            <ul <?php   if ($active=="AddApplication" || $active=="ManageApplication") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
                                 <li class="submenu-item ">
                                     <a href="AddApplication">Add Application</a>
                                 </li>
@@ -153,12 +170,20 @@ a{
                                
                             </ul>
                         </li>
-                        <li <?php   if($active=="SearchEnrollment" || $active=="CheckStatus" || $active=="PrintApplication"|| $active=="EditEnrollment"|| $active=="StudentRemarks"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                        <li <?php   if ($active=="SearchEnrollment" || $active=="CheckStatus" || $active=="PrintApplication"|| $active=="EditEnrollment"|| $active=="StudentRemarks") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-person-badge-fill"></i>
                                 <span>Enrollments</span>
                             </a>
-                            <ul <?php   if( $active=="SearchEnrollment"  || $active=="CheckStatus" || $active=="PrintApplication" || $active=="EditEnrollment"|| $active=="StudentRemarks"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                            <ul <?php   if ($active=="SearchEnrollment"  || $active=="CheckStatus" || $active=="PrintApplication" || $active=="EditEnrollment"|| $active=="StudentRemarks") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
                                 <li class="submenu-item ">
                                     <a href="SearchEnrollment">New Enrollment</a>
                                 </li>
@@ -168,13 +193,13 @@ a{
                                 <li class="submenu-item ">
                                     <a href="PrintApplication">Print Enrollment Application </a>
                                 </li>
-                                <?php	if( ($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator")||($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="principal") ){ ?>
+                                <?php	if (($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator")||($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="principal")) { ?>
 
                                 <li class="submenu-item ">
                                     <a href="EditEnrollment"> Edit Enrollment </a>
                                 </li>
                                 <?php }?>
-                                <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
+                                <?php  if ($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
 
                                 <li class="submenu-item ">
                                     <a href="StudentRemarks">Remarks</a>
@@ -184,32 +209,48 @@ a{
                             </ul>
                         </li>
                         <li class="sidebar-title badge bg-success text-light">Finance</li>
-                        <li <?php   if($active=="AddTutionFee" || $active=="ModifyTutionFee"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                        <li <?php   if ($active=="AddTutionFee" || $active=="ModifyTutionFee") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-bank"></i>
                                 <span>Tuition Fee</span>
                             </a>
-                            <ul <?php   if( $active=="AddTutionFee"  || $active=="ModifyTutionFee"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                            <ul <?php   if ($active=="AddTutionFee"  || $active=="ModifyTutionFee") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
                                 <li class="submenu-item ">
                                     <a href="AddTutionFee">Add Tuition Fee</a>
                                 </li>
-                                <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
+                                <?php  if ($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
                                 <li class="submenu-item ">
                                     <a href="ModifyTutionFee">Modify Tuition Fee</a>
                                 </li>
                                 <?php }?>
                             </ul>
                         </li>
-                        <li <?php   if($active=="AddUbsFee" || $active=="ModifyUbsFee"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                        <li <?php   if ($active=="AddUbsFee" || $active=="ModifyUbsFee") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-cash"></i>
                                 <span>UBS Fee</span>
                             </a>
-                            <ul <?php   if( $active=="AddUbsFee"  || $active=="ModifyUbsFee"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                            <ul <?php   if ($active=="AddUbsFee"  || $active=="ModifyUbsFee") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
                                 <li class="submenu-item ">
                                     <a href="AddUbsFee">Add UBS Fee</a>
                                 </li>
-                                <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
+                                <?php  if ($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
                                 <li class="submenu-item ">
                                     <a href="ModifyUbsFee">Modify UBS Fee</a>
                                 </li>
@@ -217,16 +258,24 @@ a{
 
                             </ul>
                         </li>
-                        <li <?php   if($active=="FeePayment" || $active=="GenerateTutionFeeReceipt" || $active=="DiscountApproval"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                        <li <?php   if ($active=="FeePayment" || $active=="GenerateTutionFeeReceipt" || $active=="DiscountApproval") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-cash-coin"></i>
                                 <span>Fee Payment</span>
                             </a>
-                            <ul <?php   if( $active=="FeePayment"  || $active=="GenerateTutionFeeReceipt" || $active=="DiscountApproval"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                            <ul <?php   if ($active=="FeePayment"  || $active=="GenerateTutionFeeReceipt" || $active=="DiscountApproval") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
                                 <li class="submenu-item ">
                                     <a href="FeePayment">Collect Fee</a>
                                 </li>
-                                <?php if($data['user_type']=="ADMIN"){ ?>
+                                <?php if ($data['user_type']=="ADMIN") { ?>
                                 <li class="submenu-item ">
                                     <a href="DiscountApproval">Discount Approval</a>
                                 </li>
@@ -238,19 +287,27 @@ a{
                             </ul>
                         </li>
                         <li class="sidebar-title badge bg-warning text-dark">Transport</li>
-                        <li <?php   if($active=="AddBus" || $active=="AddStages"|| $active=="ModifyStages"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                        <li <?php   if ($active=="AddBus" || $active=="AddStages"|| $active=="ModifyStages") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-truck"></i>
                                 <span>Bus Management</span>
                             </a>
-                            <ul <?php   if( $active=="AddBus"  || $active=="AddStages"|| $active=="ModifyStages"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                            <ul <?php   if ($active=="AddBus"  || $active=="AddStages"|| $active=="ModifyStages") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
                                 <li class="submenu-item ">
                                     <a href="AddBus">Add Bus</a>
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="AddStages">Stages Fare <i class="bi bi-cash-coin"></i></a>
                                 </li>
-                                <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
+                                <?php  if ($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
                                 <li class="submenu-item ">
                                     <a href="ModifyStages">Modify Stages  </i></a>
                                 </li>
@@ -259,16 +316,24 @@ a{
                             </ul>
                         </li>
                       
-                        <li <?php   if($active=="TransportFeeBilling" ){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                        <li <?php   if ($active=="TransportFeeBilling") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-person-plus-fill"></i>
                                 <span>Transport Enrollment</span>
                             </a>
-                            <ul <?php   if( $active=="TransportFeeBilling"  ){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                            <ul <?php   if ($active=="TransportFeeBilling") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
                                 <li class="submenu-item ">
                                     <a href="TransportFeeBilling">Enroll Student</a>
                                 </li>
-                                <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
+                                <?php  if ($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
                                 <li class="submenu-item ">
                                     <a href="#">Modify Enrollment <i class="bi bi-slash-circle-fill"></i></a>
                                 </li>
@@ -277,18 +342,53 @@ a{
                                 
                             </ul>
                         </li>
-                        <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
+
+                        <li class="sidebar-title badge bg-success text-light">Attendance</li>
+                        <li <?php   if ($active=="AttendanceEntry" || $active=="ViewAttendanceReport") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
+                            <a href="#" class='sidebar-link'>
+                            <i class="bi bi-person-fill"></i>
+                                <span>Attendance Management</span>
+                            </a>
+                            <ul <?php   if ($active=="AttendanceEntry"  || $active=="ViewAttendanceReport") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
+                                <li class="submenu-item ">
+                                    <a href="AttendanceEntry">Attendance Entry</a>
+                                </li>
+                               
+                                <li class="submenu-item ">
+                                    <a href="ViewAttendanceReport">View Attendance Report</a>
+                                </li>
+                               
+
+                            </ul>
+                        </li> 
+                        <?php  if (($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") || ($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="principal")) { ?>
                          <li class="sidebar-title badge bg-dark text-light">User's</li>
-                        <li <?php   if($active=="AddUser" || $active=="ManageUser"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                        <li <?php   if ($active=="AddUser" || $active=="ManageUser") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-person-fill"></i>
                                 <span>User Management</span>
                             </a>
-                            <ul <?php   if( $active=="AddUser"  || $active=="ManageUser"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                            <ul <?php   if ($active=="AddUser"  || $active=="ManageUser") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
                                 <li class="submenu-item ">
                                     <a href="AddUser">Add Users</a>
                                 </li>
-                                <?php  if( $_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
+                                <?php  if ($_SESSION['usertype']=="ADMIN" && $_SESSION['username']=="administrator") { ?>
                                 <li class="submenu-item ">
                                     <a href="ManageUser">Manage Users</a>
                                 </li>
@@ -298,12 +398,20 @@ a{
                         </li> 
                         <?php }?>
                          <li class="sidebar-title badge bg-primary text-light">Events</li>
-                        <li <?php   if($active=="AddEvents" || $active=="ManageEvents"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                        <li <?php   if ($active=="AddEvents" || $active=="ManageEvents") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-calendar-day-fill"></i>
                                 <span>Event Management</span>
                             </a>
-                            <ul <?php   if( $active=="AddEvents"  || $active=="ManageEvents"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                            <ul <?php   if ($active=="AddEvents"  || $active=="ManageEvents") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
                                 <li class="submenu-item ">
                                     <a href="AddEvents">Add Event</a>
                                 </li>
@@ -314,12 +422,20 @@ a{
                             </ul>
                         </li>
                         <li class="sidebar-title badge bg-light text-dark">Reports</li>
-                        <li <?php   if($active=="FeeReportCustom" || $active=="UbsReport"|| $active=="ClassFeeReport"){ echo 'class="sidebar-item active has-sub"'; }else{ echo 'class="sidebar-item has-sub"'; } ?> >
+                        <li <?php   if ($active=="FeeReportCustom" || $active=="UbsReport"|| $active=="ClassFeeReport") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
                             <a href="#" class='sidebar-link'>
                             <i class="bi bi-file-earmark-medical"></i>
                                 <span>Finance</span>
                             </a>
-                            <ul <?php   if( $active=="FeeReportCustom"  || $active=="UbsReport"|| $active=="ClassFeeReport"){ echo 'class="submenu active"'; }else{ echo 'class="submenu "'; } ?> >
+                            <ul <?php   if ($active=="FeeReportCustom"  || $active=="UbsReport"|| $active=="ClassFeeReport") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
                                 <li class="submenu-item ">
                                     <a href="FeeReportCustom">Fee Report(Custom)</a>
                                 </li>
@@ -332,6 +448,7 @@ a{
                                 
                             </ul>
                         </li>
+                        <?php }?>
                         <li class="sidebar-title badge bg-danger text-light"><a>Raise Support</a></li>
 
                         <li class="sidebar-item  ">

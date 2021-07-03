@@ -8,7 +8,7 @@ if(isset($_POST["query"]))
  $var="APPROVED";
  $status=$var;
  $query = "
-  SELECT * FROM student_enrollment WHERE CONCAT(studentid,student_name,enrollment) LIKE '%".$search."%'  LIMIT 10";
+  SELECT * FROM student_enrollment WHERE CONCAT(studentid,student_name,father_number) LIKE '%".$search."%'  LIMIT 10";
 
 }
 else
@@ -38,7 +38,6 @@ if(mysqli_num_rows($result) > 0)
   border: 1px solid rgba( 255, 255, 255, 0.18 );">
 
    <div class="row" >
-   <div class="col-sm col_data"><strong><img src="https://sssvn.starktechlabs.in/student_pics/'.$row['img_url'].'"  width="100px" height="100px"></strong> </div >
     <div class="col-sm col_data" >Student ID : <strong>'.$row['studentid'].' </strong> </div >
     <div class="col-sm col_data" >Student Name : <strong> '.$row['student_name'].'</strong> </div >
     <div class="col-sm col_data" >Admission No : <strong> '.$row['admission_no'].'</strong> </div >
@@ -48,7 +47,7 @@ if(mysqli_num_rows($result) > 0)
 
     <div class="col-sm col_data" >Gender : <strong> '.$row['gender'].'</strong> </div >
     <div class="col-sm col_data" >Mobile no : <strong><a href="tel:'.$row['father_number'].'"> '.$row['father_number'].' </a></strong> </div >
-    <div class="col-sm col_data" >Gender : <strong> '.$row['gender'].'</strong> </div >
+   
  
    </div >
 

@@ -21,15 +21,18 @@
 	</div>
 	<!--//app-card-body-->
 </center>
-
+<?php  if( $_SESSION['usertype']=="TEACHER" ) { ?>
+				<center><h3>This Portal is Disabled for Teacher login <br> Please Login with the following Url :
+				  <a href="https://teachers.sssvnbagepalli.in" target="_blank">teachers.sssvnbagepalli.in</a></h3></center>
+					<?php } else{ ?>
 <?php $year = date("Y");
-	$ay = $year . "-" . ($year + 1);
-	$sql = "SELECT sum(tution_fee_paid) as collected_tution, SUM(tution_balance_fee) as balance_tution, SUM(transport_fee_paid) as collected_transport, SUM(transport_balance) as balance_transport FROM balance_fee where academic_year='$ay'";
-	$result=mysqli_query($conn,$sql);
-	$fetch=mysqli_fetch_assoc($result);		
-	
+    $ay = $year . "-" . ($year + 1);
+    $sql = "SELECT sum(tution_fee_paid) as collected_tution, SUM(tution_balance_fee) as balance_tution, SUM(transport_fee_paid) as collected_transport, SUM(transport_balance) as balance_transport FROM balance_fee where academic_year='$ay'";
+    $result=mysqli_query($conn, $sql);
+    $fetch=mysqli_fetch_assoc($result);
+    
 
-	?>
+    ?>
 
 <div class="row g-4 mb-4">
 	<div class="col-6 col-lg-3">
@@ -91,23 +94,30 @@
 </div>
 <!--//row-->
 <div class="row g-4 mb-4">
-	<div class="col-12 col-lg-6">
+<!--//col-->
+<div class="col-12 col-lg-6">
 		<div class="app-card app-card-chart h-100 shadow-sm">
 			<div class="app-card-header p-3 border-0">
-				<h4 class="app-card-title text-center">Class wise Strength </h4>
+				<h4 class="app-card-title"><center>Search Student</center></h4>
 			</div>
-			<!--//app-card-header-->
-			<div class="app-card-body p-4">
+			<!-- //app-card-header-->
+			<div class="app-card-body p-4" >
 				<div class="chart-container">
-					<canvas id="bar-chart"></canvas>
+				<center>       <h5 class="tit">  Student ID / Student Name /Mobile No. :</h5> <input type="text" autocomplete="off" autofocus name="search_text" id="search_text" style="width:min-content;" value="<?php if (isset($_REQUEST['studentid'])==0) {
+        echo"";
+    } elseif (isset($_REQUEST['studentid'])==1) {
+        echo $_REQUEST['studentid'];
+    }?>" class="form-control" id="">
+</center>
+<div id="result" style="overflow: scroll;height:300px">
+  </div>
 				</div>
 			</div>
-			<!--//app-card-body-->
+			<!--//app-card-body -->
 		</div>
 		<!--//app-card-->
 	</div>
-	
-	<!--//col-->
+
 	<div class="col-12 col-lg-6">
 		<div class="app-card app-card-chart h-100 shadow-sm">
 			<div class="app-card-header p-3 border-0">
@@ -123,6 +133,24 @@
 		</div>
 		<!--//app-card-->
 	</div>
+	<!--//col-->
+		<!--//col-->
+		<div class="col-12 col-lg-6">
+		<div class="app-card app-card-chart h-100 shadow-sm">
+			<div class="app-card-header p-3 border-0">
+				<h4 class="app-card-title text-center">Class wise Strength </h4>
+			</div>
+			<!--//app-card-header-->
+			<div class="app-card-body p-4">
+				<div class="chart-container">
+					<canvas id="bar-chart"></canvas>
+				</div>
+			</div>
+			<!--//app-card-body-->
+		</div>
+		<!--//app-card-->
+	</div>
+	
 	<!--//col-->
 
 	<div class="col-12 col-lg-6">
@@ -146,15 +174,14 @@
 							</thead>
 							<?php
 
-							$sql = "SELECT * from student_tution_fee where   due_date='$dt' and  academic_year='$ay' order by created_on desc ";
-							$ask = mysqli_query($conn, $sql);
+                            $sql = "SELECT * from student_tution_fee where   due_date='$dt' and  academic_year='$ay' order by created_on desc ";
+                            $ask = mysqli_query($conn, $sql);
 
 
-							if (mysqli_num_rows($ask) > 0) {
-								$i = 1;
-							?><?php
-								while ($row = mysqli_fetch_assoc($ask)) {
-		?>
+                            if (mysqli_num_rows($ask) > 0) {
+                                $i = 1; ?><?php
+                                while ($row = mysqli_fetch_assoc($ask)) {
+                                    ?>
 							<tr>
 								<td><?php echo $i++; ?></td>
 								<td><?php echo $row['student_name'] ?></td>
@@ -166,15 +193,15 @@
 							</tr>
 
 						<?php
-								}
-							} else { ?>
+                                }
+                            } else { ?>
 						<td></td>
 						<td class="text-light">No Dues for Today <?php echo $dt ?></td>
 					<?php }
 
 
 
-					?>
+                    ?>
 
 						</table>
 					</marquee>
@@ -206,17 +233,16 @@
 								<td>Event Date</td>
 							</thead>
 							<?php
-							$year = date("Y");
-							$ay = $year . "-" . ($year + 1);
-							$sql = "SELECT * from events where event_date='$dt' and  academic_year='$ay' order by event_added_on asc ";
-							$ask = mysqli_query($conn, $sql);
+                            $year = date("Y");
+                            $ay = $year . "-" . ($year + 1);
+                            $sql = "SELECT * from events where event_date='$dt' and  academic_year='$ay' order by event_added_on asc ";
+                            $ask = mysqli_query($conn, $sql);
 
 
-							if (mysqli_num_rows($ask) > 0) {
-								$i = 1;
-							?><?php
-								while ($row = mysqli_fetch_assoc($ask)) {
-		?>
+                            if (mysqli_num_rows($ask) > 0) {
+                                $i = 1; ?><?php
+                                while ($row = mysqli_fetch_assoc($ask)) {
+                                    ?>
 							<tr class="text-dark">
 								<td><?php echo $i++; ?></td>
 								<td><?php echo $row['event_name'] ?></td>
@@ -228,15 +254,15 @@
 							</tr>
 
 						<?php
-								}
-							} else { ?>
+                                }
+                            } else { ?>
 						<td></td>
 						<td class="text-dark text-center">No Events for Today <?php echo $dt ?></td>
 					<?php }
 
 
 
-					?>
+                    ?>
 
 						</table>
 					</marquee>
@@ -302,9 +328,39 @@
 		}
 	});
 </script>
+<script>
+$(document).ready(function(){
+
+ load_data();
+
+ function load_data(query)
+ {
+  $.ajax({
+   url:"search.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data)
+   {
+    $('#result').html(data);
+   }
+  });
+ }
+ $('#search_text').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   load_data(search);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});
+</script>
 
 <!-- Charts JS -->
 
 
 
-<?php include "footer.php"; ?>
+<?php } include "footer.php"; ?>

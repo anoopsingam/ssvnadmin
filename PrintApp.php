@@ -21,7 +21,7 @@ function my_simple_crypt( $string, $action = 'e' ) {
   }
 $dcry = my_simple_crypt($_GET['enr'], 'd');
 
-$sql = "SELECT * FROM student_enrollment WHERE enrollment='$dcry'";
+$sql = "SELECT * FROM student_enrollment WHERE enrollment='$dcry' or studentid='$dcry' ";
 $ask = mysqli_query($conn, $sql);
 if (mysqli_num_rows($ask) > 0) {
     while ($row = mysqli_fetch_assoc($ask)) { ?>

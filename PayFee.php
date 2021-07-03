@@ -231,13 +231,15 @@ window.location.assign("FeePayment")
                     </script>
             <?php  if($student_mail="**"){ ?>
                 <script>
-                                    window.location.assign("FeePayment");
+                                    window.location.assign("<?php echo" PrintTutionBill?billno=".my_simple_crypt($bill_no, 'e')?>");
 
                 </script>
 
           <?php  }else{
-                echo"<center><h3>Mail is being sent to $student_mail please wait ......</h3></center>"; ?>
-
+                echo"<center style='padding-top:150px;' ><h3>Mail is being sent to $student_mail please wait ......</h3></center>";
+                sleep(2);
+                ?>
+                
             <script>
 
                     window.location.assign("Mail?mail=<?php echo"$student_mail"; ?>&mail_type=Payment&mode=fee_bill&<?php echo http_build_query($msg); ?> ");
