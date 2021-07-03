@@ -258,7 +258,7 @@ a{
 
                             </ul>
                         </li>
-                        <li <?php   if ($active=="FeePayment" || $active=="GenerateTutionFeeReceipt" || $active=="DiscountApproval") {
+                        <li <?php   if ($active=="FeePayment" || $active=="GenerateTutionFeeReceipt" || $active=="DiscountApproval"|| $active=="FinancialRecord") {
                            echo 'class="sidebar-item active has-sub"';
                        } else {
                            echo 'class="sidebar-item has-sub"';
@@ -267,11 +267,14 @@ a{
                             <i class="bi bi-cash-coin"></i>
                                 <span>Fee Payment</span>
                             </a>
-                            <ul <?php   if ($active=="FeePayment"  || $active=="GenerateTutionFeeReceipt" || $active=="DiscountApproval") {
+                            <ul <?php   if ($active=="FeePayment"  || $active=="GenerateTutionFeeReceipt" || $active=="DiscountApproval"|| $active=="FinancialRecord") {
                            echo 'class="submenu active"';
                        } else {
                            echo 'class="submenu "';
                        } ?> >
+                                 <li class="submenu-item ">
+                                    <a href="FinancialRecord">Transaction Record </a>
+                                </li>
                                 <li class="submenu-item ">
                                     <a href="FeePayment">Collect Fee</a>
                                 </li>
