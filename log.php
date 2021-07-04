@@ -157,13 +157,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-1">
                     <img src="assets/images/logo/logo.png" class="img-fluid" alt="Logo" srcset="">
-                    <h1 class="heading-section"><strong>Sri Sathya Sai Vidyanikethan Bagepalli <br>ERP Login </strong><br><small style="font-size: xx-small;font-weight:bolder;">Powered By Stark Tech Innovative Labs</small></h1>
+                    <h1 class="heading-section"><strong>Sri Sathya Sai Vidyaniketan Bagepalli <br>ERP Login </strong><br><small style="font-size: xx-small;font-weight:bolder;">Powered By Stark Tech Innovative Labs</small></h1>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-10">
                     <div class="wrap d-md-flex">
-                        <div class="img" style="background-image: url('img/swami.png');">
+                        <div class="img" style="background-image: url('img/his-life-banner1.jpg');">
                         </div>
                         <div class="login-wrap p-4 p-md-5">
                             <div class="d-flex">

@@ -425,6 +425,27 @@ a{
                             </ul>
                         </li>
                         <li class="sidebar-title badge bg-light text-dark">Reports</li>
+                        <li <?php   if ($active=="StudentDataReport") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
+                            <a href="#" class='sidebar-link'>
+                            <i class="bi bi-people-fill"></i>
+                                <span>Admissions</span>
+                            </a>
+                            <ul <?php   if ($active=="StudentDataReport"  ) {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
+                                <li class="submenu-item ">
+                                    <a href="StudentDataReport">Student Data Report</a>
+                                </li>
+                               
+                                
+                            </ul>
+                        </li>
                         <li <?php   if ($active=="FeeReportCustom" || $active=="UbsReport"|| $active=="ClassFeeReport"|| $active=="LoginFeeReport") {
                            echo 'class="sidebar-item active has-sub"';
                        } else {

@@ -50,6 +50,18 @@ if (empty($enr)) { ?>
                         <option value="10">10TH STD</option>
                     </select>
                 </div>
+                <div class="col-sm">
+Select Section:-
+                        <select name="section" id="" style="width: 90px;" class="form-control">
+                            <option value="::NON::" selected></option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+
+                        </select>
+                    </div>
                 <div class="col-sm"> <label for="">Status :</label>
                     <select name="status" class="form-control" id="">
                     <option value="WAITING" selected >WAITING</option>
@@ -127,6 +139,7 @@ if (isset($_POST['update'])) {
                                                                     $enr = $_POST['enrollment'];
                                                                     $adm_cat = $_POST['adm_cat'];
                                                                     $admissionclass = $_POST['admissionclass'];
+                                                                    $section = $_POST['section'];
                                                                     $status = $_POST['status'];
                                                                     $spons = $_POST['spons'];
                                                                     $spons_number = $_POST['spons_number'];
@@ -138,7 +151,7 @@ if (isset($_POST['update'])) {
                                                                         $studentid = "::NOT ASSIGNED::";
                                                                     }
                                                                     $ap_time = date("Y-m-d h:i:sa");
-                                                                    $sql = "UPDATE `student_enrollment` SET `adm_cat`='$adm_cat',`admissionclass`='$admissionclass',`status`='$status',`spons`='$spons',`spons_number`='$spons_number',`spons_address`='$spons_address',`approval_time`='$ap_time',`studentid`='$studentid',`admission_no`='$admission_no',`present_class`='$admissionclass' WHERE enrollment='$enr'";
+                                                                    $sql = "UPDATE `student_enrollment` SET `adm_cat`='$adm_cat',`admissionclass`='$admissionclass',`status`='$status',`spons`='$spons',`spons_number`='$spons_number',`spons_address`='$spons_address',`approval_time`='$ap_time',`studentid`='$studentid',`admission_no`='$admission_no',`present_class`='$admissionclass',`present_section`='$section' WHERE enrollment='$enr'";
                                                                     $update = mysqli_query($conn, $sql);
                                                                     if ($update == 1) {
                                                                         echo "<script>alert('$enr has been verified & $status ID-$studentid')</script>"; ?>
