@@ -121,7 +121,7 @@
     });
 </script>
 <div class="fluid-container" id="transactions">
-        <center><h4><?php echo $id?> Transaction Details <?php echo $ay?></h4></center>
+        <center><h4><?php $disc_data = mysqli_query($conn, "SELECT * FROM student_enrollment where studentid='$id'"); $disc_fetch = mysqli_fetch_array($disc_data); echo $disc_fetch['student_name']." ".$disc_fetch['present_class']." ".$disc_fetch['present_section']."[$id]";?> Transaction Details <?php echo $ay?></h4></center>
         <div style="overflow: scroll;width:100%" >
         <table id="example" class="table table-bordered" style="width:100%;">
             <thead class="bg-primary text-light">
@@ -174,7 +174,7 @@
                  ?>
                 <tfoot>
                 <tr style="font-size: small;font-weight:500;">
-                <td>SID: <?php echo $id;?></td>
+                <td>ID: <?php echo $disc_fetch['student_name']." ".$disc_fetch['present_class']." ".$disc_fetch['present_section']."<br>[$id]";?></td>
                 <td>Academic Year: <?php echo $ay;?></td>
                 <td>Tuition Fee Paid :<?php echo '₹' . number_format($fetch['tution_fee_paid']); ?></td>
                 <td>Tuition Fee Balance :<?php echo '₹' . number_format($fetch['tution_balance_fee']); ?></td>
