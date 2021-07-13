@@ -94,6 +94,9 @@
             <div class="col-sm">
                 <label for="Student  Section">Present Section</label><input readonly class="form-control" type="text" name="present_section" value="<?php echo $data['present_section'] ?>" id="" />
             </div>
+             <div class="col-sm">
+                <label for="Admission Type">Admission Type:</label><input readonly class="form-control" type="text" name="#" value="<?php echo $data['adm_cat'] ?>" id="" />
+            </div>
         </div> <br>
         <div class="row">
             <h4>FEE DETAILS</h4>

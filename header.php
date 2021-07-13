@@ -400,6 +400,30 @@ a{
                             </ul>
                         </li> 
                         <?php }?>
+                        <li class="sidebar-title badge bg-danger text-light">Employee</li>
+                        <li <?php   if ($active=="AddEmployee" || $active=="ManageEmployee") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
+                            <a href="#" class='sidebar-link'>
+                            <i class="bi bi-people-fill"></i>
+                                <span>Staff Management</span>
+                            </a>
+                            <ul <?php   if ($active=="AddEmployee"  || $active=="ManageEmployee") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
+                                <li class="submenu-item ">
+                                    <a href="AddEmployee">Add Employee</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ManageEmployee">Manage Employees</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
                          <li class="sidebar-title badge bg-primary text-light">Events</li>
                         <li <?php   if ($active=="AddEvents" || $active=="ManageEvents") {
                            echo 'class="sidebar-item active has-sub"';

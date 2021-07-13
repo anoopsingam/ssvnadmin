@@ -112,7 +112,7 @@
 
             <?php
 
-            $sql = "SELECT * FROM applications ORDER BY ref_no ASC ";
+            $sql = "SELECT * FROM `applications` ORDER BY `id` DESC";
             $ask = mysqli_query($conn, $sql);
             if (mysqli_num_rows($ask) > 0) {
                 while ($row = mysqli_fetch_assoc($ask)) {

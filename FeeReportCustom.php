@@ -47,7 +47,7 @@ if (isset($_POST['but_search'])) {
     $dt2=explode("-",$enddate);
    $newenddate=$dt2[2]."-".$dt2[1]."-".$dt2[0];
     $ay=$_POST['ay'];
-    $sql="SELECT * from student_tution_fee where academic_year='$ay' and billing_date between '$newfrmdate' and '$newenddate' order by bill_no asc   ";
+    $sql="SELECT * from student_tution_fee where academic_year='$ay' and billing_date between '$newfrmdate' and '$newenddate' order by created_on asc   ";
     $ask=mysqli_query($conn, $sql);
 
 
@@ -145,6 +145,8 @@ if (isset($_POST['but_search'])) {
         <th>Installment</th>
         <th>Tuition Fee Paid</th>
         <th>Tuition Fee Balance</th>
+        <th>UBS Fee Paid</th>
+        <th>UBS Fee Balance</th>
         <th>Transport Fee Paid</th>
         <th>Transport Fee Balance</th>
         <th>Due Date</th>
@@ -157,10 +159,12 @@ if (isset($_POST['but_search'])) {
    <td> <?php echo $row['bill_no'];?> </td>
    <td> <?php echo $row['student_name'];?> </td>
    <td> <?php echo $row['student_id'];?> </td>
-   <td> <?php echo $row['billing_date'];?> </td>
+   <td> <?php echo $row['created_on'];?> </td>
     <td> <?php echo $row['installment'];?> </td>
     <td> <?php echo $row['paying_fee'];?> </td>
     <td> <?php echo $row['balance_amount'];?> </td>
+     <td> <?php echo $row['ubs_fee_paying'];?> </td>
+     <td> <?php echo $row['ubs_fee_balance'];?> </td>
     <td> <?php echo $row['transport_fee_paying'];?> </td>
     <td> <?php echo $row['transport_fee_balance'];?> </td>
     <td> <?php echo $row['due_date'];?> </td>
