@@ -9,12 +9,12 @@ window.location.assign("FeePayment")
  <?php }else{
       $transaction_mode = $_POST['transaction_mode'];
       if(empty($_POST['transaction_id'])){
-                  $transaction_id=":: TRANSACTION ID IS NOT PROVIDED ::";
+                  $transaction_id=":: TRANSACTION ID IS NOT PROVIDED ::".uniqid();
       }else{
           $transaction_id=$_POST['transaction_id'];
       }
     if($transaction_mode=="CASH"){
-        $transaction_id="NO TRANASACTION ID FOR CASH";
+        $transaction_id=uniqid();
     }
 
       $installment = $_POST['installment'];
@@ -148,9 +148,9 @@ while ($row = mysqli_fetch_object($query)) {
   $lastId =  $row->bill_no;
 }
 
-list($prefix,$Id) = explode('BILL0',$lastId );
+list($prefix,$Id) = explode('BILL',$lastId );
 $Id = ($Id+1);
-$bill_no = 'BILL0'.$Id;
+$bill_no = 'BILL'.$Id;
 // END PREFIX
 //==================================================
 
@@ -229,7 +229,7 @@ window.location.assign("FeePayment")
             <script>
                     alert("<?php echo " $student_name has Paid $installment Successfully Bill No: $bill_no. If Discount is Included please wait for Approval..!! $state"; ?>");
                     </script>
-            <?php  if($student_mail="**"){ ?>
+            <?php  if($student_mail=="**"){ ?>
                 <script>
                                     window.location.assign("<?php echo" PrintTutionBill?billno=".my_simple_crypt($bill_no, 'e')?>");
 

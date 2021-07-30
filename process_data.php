@@ -72,7 +72,7 @@ if(mysqli_num_rows($result) > 0)
  </div>
 
 <br>
- <center> <a href="EditApplication?enr='.$row['enrollment'].'"> <button class="btn btn-warning">Edit <strong> '.$row['enrollment'].'</strong></button></a></center>
+ <center> <a href="EditApplication?enr='.$row['studentid'].'"> <button class="badge bg-danger">Edit <strong> '.$row['enrollment'].'</strong></button></a></center>
 
  
   </div>

@@ -64,6 +64,7 @@ $var=explode("/",$act);
     <link rel="shortcut icon" href="favicon.ico"> 
     <link rel="manifest" href="manifest.json">
 	<script src="sw.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
@@ -424,6 +425,34 @@ a{
                                 
                             </ul>
                         </li>
+                        
+                        <li class="sidebar-title badge bg-secondary text-light">Leave Management</li>
+                        <li <?php   if ($active=="AddLeave" || $active=="LeaveStatus") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
+                            <a href="#" class='sidebar-link'>
+                            <i class="bi bi-people-fill"></i>
+                                <span>Employee Leaves</span>
+                            </a>
+                            <ul <?php   if ($active=="AddLeave"  || $active=="LeaveStatus") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
+                                <li class="submenu-item ">
+                                    <a href="AddLeave">Add Leave</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="LeaveStatus">Leave Status</a>
+                                </li>
+                              
+                                
+                            </ul>
+                        </li>
+
+                        
                          <li class="sidebar-title badge bg-primary text-light">Events</li>
                         <li <?php   if ($active=="AddEvents" || $active=="ManageEvents") {
                            echo 'class="sidebar-item active has-sub"';
@@ -448,6 +477,7 @@ a{
                                 
                             </ul>
                         </li>
+                        
                         <li class="sidebar-title badge bg-light text-dark">Reports</li>
                         <li <?php   if ($active=="StudentDataReport") {
                            echo 'class="sidebar-item active has-sub"';

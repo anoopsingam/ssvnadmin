@@ -20,7 +20,7 @@
 <div class="example-screen">
 
 <div class="col-sm">
-<center>       <h5 class="tit"> <span class=" text-danger ">This Option is Temporarily Disabled</span> <br> Student ID / Enrollment No. / Student Name /Mobile No. :</h5> <input type="text" autocomplete="off" autofocus name="search_text" id="search_text" style="width:min-content;" value="<?php if(isset($_REQUEST['studentid'])==0){echo"";}elseif(isset($_REQUEST['studentid'])==1){echo $_REQUEST['studentid'];}?>" class="form-control" id="">
+<center>       <h5 class="tit"> <span class=" text-danger ">This is still In Beta Stage</span> <br> Student ID / Enrollment No. / Student Name /Mobile No. :</h5> <input type="text" autocomplete="off" autofocus name="search_text" id="search_text" style="width:min-content;" value="<?php if(isset($_REQUEST['studentid'])==0){echo"";}elseif(isset($_REQUEST['studentid'])==1){echo $_REQUEST['studentid'];}?>" class="form-control" id="">
 </center>
 </div></div>
 
