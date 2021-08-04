@@ -451,7 +451,32 @@ a{
                                 
                             </ul>
                         </li>
-
+                        <li class="sidebar-title badge bg-info text-light">Notice</li>
+                        <li <?php   if ($active=="AddNotice" || $active=="ManageNotices") {
+                           echo 'class="sidebar-item active has-sub"';
+                       } else {
+                           echo 'class="sidebar-item has-sub"';
+                       } ?> >
+                            <a href="#" class='sidebar-link'>
+                            <i class="bi bi-calendar-fill"></i>
+                                <span>Digital Notice Management</span>
+                            </a>
+                            <ul <?php   if ($active=="AddNotice"  || $active=="ManageNotices") {
+                           echo 'class="submenu active"';
+                       } else {
+                           echo 'class="submenu "';
+                       } ?> >
+                                <li class="submenu-item ">
+                                    <a href="AddNotice">Add Notice</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ManageNotices">Manage Notice's</a>
+                                </li>
+                              
+                                
+                            </ul>
+                        </li>
+                        
                         
                          <li class="sidebar-title badge bg-primary text-light">Events</li>
                         <li <?php   if ($active=="AddEvents" || $active=="ManageEvents") {

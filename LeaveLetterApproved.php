@@ -55,11 +55,16 @@ if (isset($_GET['id'])) {
         margin:25px;
         padding:15px;
       }
+      @media print {
+               .noprint {
+                  visibility: hidden;
+               }
+            }
     </style>
 </head>
 <body>
    <form class="form" style="max-width: none; width: 1005px;">
-   <div id="invoice">
+   <div  style="font-size: larger;" id="invoice">
                   <center>
                     <img src="img/logo (2).png" height="150px" width="150px" alt="">
                     <h3>SRI SATHYA SAI VIDYANIKETAN,BAGEPALLI</h3>
@@ -69,7 +74,7 @@ if (isset($_GET['id'])) {
 <p><b>To,<br /></b>
 <?php echo $leave_details['teacher_name']?>,<br />
 <b><?php echo "Employee ID: ".$leave_details['teacher_id']?></b>,<br />
-<?php echo $kyt_details['permanent_address']?></p>
+<?php echo $kyt_details['permanent_address']?></p>.
 <b><p>Date: <?php $var=explode(" ",$leave_details['leave_approved_on']);
 echo $var[0];
 ?></p></b>
@@ -81,10 +86,38 @@ echo $var[0];
 <b><?php echo "Approved On: ".$leave_details['leave_approved_on']?></b>,<br />
 Sri Sathya Sai Vidya Niketan, Bagepalli-561207</p>
 
+   
+
+</strong>
     </div>
+     <footer>
+         <center><br><br><br><p>EMP SRC CODE:</p>
+         <?php 
+$md5 = strtoupper(md5($kyt_details['id']. $kyt_details['name'] . $kyt_details['email'] . $kyt_details['phone_no']));
+	
+	$code[] = substr ($md5, 0, 5);
+	$code[] = substr ($md5, 5, 5);
+	$code[] = substr ($md5, 10, 5);
+	$code[] = substr ($md5, 15, 5);
+
+	$membcode = implode ("-", $code);
+	if (strlen($membcode) == "23") { 
+       echo $text = $membcode;
+// echo "<img alt='BARCODE' src='barcode?codetype=Code39&size=35&text=" . $text . "&print=true'/>";
+    
+    } else {
+        return (false);
+    }
+
+?>
+        <small> <?php include'footer.php';?></small>
+         </center>
+     </footer>
    </form>
+   
    <center>
-   <input type="button" id="create_pdf" class="btn btn-danger" value="Download PDF">
+   
+   <input type="button" id="create_pdf" class="btn btn-danger noprint" value="Download PDF">
 
    </center>
 </body>
@@ -171,7 +204,7 @@ Sri Sathya Sai Vidya Niketan, Bagepalli-561207</p>
                     margin: 0,
                     padding: 10,
                     background: "#000",
-                    opacity: 0.7,
+                
                     position: "fixed",
                     top: 10,
                     right: 10,

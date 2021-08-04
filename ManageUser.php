@@ -8,6 +8,7 @@
 <div style="overflow: scroll; ">
     <table class="table table-bordered">
         <thead>
+            <th>E.ID</th>
             <th>User Name</th>
             <th>User Category</th>
             <th>Email Id</th>
@@ -26,6 +27,7 @@
                     while ($row=mysqli_fetch_assoc($ask)) {
                         ?>
             <tr>
+            <td><?php echo $row['emp_id']?></td>
                 <td><?php echo $row['username']?></td>
                 <td><?php echo $row['user_type']?></td>
                 <td><?php echo $row['emailid']?></td>
@@ -36,10 +38,18 @@
                                                                     if ($row['username']!="administrator") {
                                                                         ?>
                 <td><a href="UpdateUser?id=<?php echo my_simple_crypt($row['id'], 'e'); ?>"><button
-                            class="btn btn-warning">UPDATE</button></a>&nbsp;<a
+                            class="btn btn-warning">UPDATE</button></a>&nbsp;
+                             <?php
+                                                                    if ($row['username']!="principal") {
+                                                                        ?> 
+                            <a
                         href="DeleteUser?id=<?php echo my_simple_crypt($row['id'], 'e'); ?>"><button
                             class="btn btn-danger">DELETE</button></a></td>
                 <?php
+                                                                    }else{
+                                                                        echo "<small>This Login Can't be Deleted</small>";
+
+                                                                    }
                                                                     } else {
                                                                         echo "<td>This Login Can't be Deleted</td>";
                                                                     } ?>

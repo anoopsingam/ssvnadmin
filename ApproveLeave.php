@@ -75,13 +75,16 @@ if (isset($_GET['id'])) {
 <?php 
             if (isset($_POST['btn_upd'])) {
                 $leave_status = $_POST['leave_status'];
-                $login_id = $_POST['login_id'];
                 $leave_id = $_POST['leave_id'];
                 date_default_timezone_set("Asia/Kolkata");   //India time (GMT+5:30)
                    if($leave_status=="APPROVED"){
                     $time= date('d-m-Y h:i:s');
+                    $login_id = $_POST['login_id'];
+
                    }else{
-                       $time="0000000000000";
+                       $time="##@@!!$$";
+                       $login_id = "";
+
                    }
 
                 if (empty($leave_id)) {

@@ -31,7 +31,7 @@
                                        </div>
                                     </div>
                                     <div class="row pt-3">
-                                    \
+                                    
                                         <div class="col-sm >
                                         
                                         <label for="" class="">User Type :</label>

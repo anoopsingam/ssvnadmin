@@ -20,7 +20,7 @@ document.getElementById("info").innerHTML = navigator.appVersion;
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script>  var x = document.title;
   document.getElementById("demo").innerHTML = x;</script></h3>
-<script src="assets/vendors/apexcharts/apexcharts.js"></script>
+<!-- <script src="assets/vendors/apexcharts/apexcharts.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script src="assets/js/pages/dashboard.js"></script>
 

@@ -49,7 +49,9 @@ if (mysqli_num_rows($rs) > 0) {
   </script>
   <?php
 } else {
-  $sql = " INSERT INTO users ( username , password , user_type , emailid ) VALUES ('$username','$param_password','$user_type','$email') ";
+  $id_sql=mysqli_fetch_array(mysqli_query($conn, "SELECT id FROM kyt where name='$username'"));
+      $id=$id_sql['id'];
+  $sql = " INSERT INTO users ( username , password , user_type , emailid,emp_id) VALUES ('$username','$param_password','$user_type','$email','$id') ";
   $send = mysqli_query($conn, $sql);
 
   if ($send) {
@@ -70,6 +72,6 @@ if (mysqli_num_rows($rs) > 0) {
     </script>
 <?php
   }
-}
+ }
 
 ?>

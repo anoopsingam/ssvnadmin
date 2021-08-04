@@ -25,6 +25,8 @@ $user_type = $_POST['user_type'];
 $emailid = $_POST['emailid'];  
 $password = $_POST['password']; 
 $username = $_POST['username']; 
+$class=$_POST['class'];
+$section=$_POST['section'];
 date_default_timezone_set("ASIA/KOLKATA");
 $update_time=date("Y-m-d h:i:sa");
 $param_password = my_simple_crypt( $password, 'e' );
@@ -32,7 +34,7 @@ $param_password = my_simple_crypt( $password, 'e' );
 
 
     //INSERT
-     $query = " UPDATE users SET  `username`= '$username',  password= '$param_password',  user_type= '$user_type',  emailid= '$emailid' WHERE id ='$dcry' "; 
+     $query = " UPDATE users SET  `username`= '$username',  password= '$param_password', class='$class',section='$section', user_type= '$user_type',  emailid= '$emailid' WHERE id ='$dcry' "; 
     $result = mysqli_query($conn, $query);
 
     if ($result) {

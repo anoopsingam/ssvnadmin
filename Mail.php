@@ -120,7 +120,7 @@ $header = '<!doctype html>
                                      .img_header{
                                       height:85px;
                                       width:100%;
-                                      background:url("https://erp.sssvnbagepalli.in/img/logo-3.png");
+                                      background:url("https://erp.sssvnbagepalli.in/assets/images/logo/logo.png");
                                       background-repeat:no-repeat;
                                       background-position: center;
                                       filter: alpha(opacity=30);
