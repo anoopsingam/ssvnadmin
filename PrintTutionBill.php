@@ -219,7 +219,16 @@ if(mysqli_num_rows($ask)>0){
 
             <!-- FEE STRUCTURE -->
             <div class="fee-content">
-                <table class="table-bordered">
+               <?php if($row['paying_fee']=="CANCELLED"){
+                ?>
+                <div class=" alert alert-danger">
+                            <center>
+                                <h3>Bill is Cancelled</h3>
+                            </center>
+                </div>
+                <?php
+               }else{?>
+ <table class="table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">SL No.</th>
@@ -276,6 +285,8 @@ if(mysqli_num_rows($ask)>0){
 
                     </tbody>
                 </table>
+               <?php
+               }?>
             </div>
             <script type="text/javascript">
             function update() {
@@ -480,7 +491,16 @@ if(mysqli_num_rows($ask)>0){
 
             <!-- FEE STRUCTURE -->
             <div class="fee-content">
-                <table class="table-bordered">
+            <?php if($row['paying_fee']=="CANCELLED"){
+                ?>
+                <div class=" alert alert-danger">
+                            <center>
+                                <h3>Bill is Cancelled</h3>
+                            </center>
+                </div>
+                <?php
+               }else{?>
+ <table class="table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">SL No.</th>
@@ -510,18 +530,14 @@ if(mysqli_num_rows($ask)>0){
                                     <td style="font-weight: 700;font-size:small;border:none"> Total Amount Paid :</td>
                                     <td style="font-weight: 700;border:none"> <strong><input type="text" id="number"
                                         style="height: 20px;border:transparent;font-weight:bold;" size="10" name="totalamount" readonly
-                                        onclick="update();"
+                                        onmousemove="update();"
                                         onkeydown="return (event.ctrlKey || event.altKey || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) || (95<event.keyCode && event.keyCode<106) || (event.keyCode==8) || (event.keyCode==9) || (event.keyCode>34 && event.keyCode<40)|| (event.keyCode==46) )"
                                         value="<?php $bal=$row['transport_fee_paying']; if(!is_numeric($bal)){ $bal=0; } echo $row['paying_fee']+$bal;?>"></strong></td>
                                         <td style="font-weight: 700;font-size:small;border:none">Balance Amount :</td>
                                         <td style="font-weight: 700;border:none"><strong><?php $balance=$row['transport_fee_balance']; if(!is_numeric($balance)){ $balance=0; } echo $row['balance_amount']+$balance;?></strong></td>
                                     </tr>
 
-                        <tr style="border: none;">
-                            <th scope="row" style="border: none;" ></th>
-                           
-                           
-                        </tr>
+                       
                        <tr style="border: none;">
                        <?php if(!empty($row['discount'])){
                          ?>
@@ -530,20 +546,19 @@ if(mysqli_num_rows($ask)>0){
                          }?>
                             <td style="font-weight: 700;font-size:small;border:none">Due Date :</td>
                             <td style="font-weight: 700;border:none"><strong><?php echo $row['due_date'];?></strong></td>
-                            
+
                        </tr>
                         
                       
-                        <tr style="border: none;">
-                            <th scope="row" style="border: none;"></th>
-                            
-                        </tr>
+                         
                             
 
 
 
                     </tbody>
                 </table>
+               <?php
+               }?>  
             </div>
             <script type="text/javascript">
             function update() {

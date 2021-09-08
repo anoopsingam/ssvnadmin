@@ -9,6 +9,11 @@
     <strong>Class</strong> 
                     </label>
                     <select name="class" style="width: min-content;" class="form-control" id="">
+                    <option  value='<?php if(isset($_POST['class'])){
+                        echo $_POST['class'];
+                    } ?>' selected><?php if(isset($_POST['class'])){
+                        echo $_POST['class'];
+                    }?></option>
                         <option value="LKG">LKG</option>
                         <option value="UKG">UKG</option>
                         <option value="1">1ST STD</option>

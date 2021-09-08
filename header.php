@@ -259,7 +259,7 @@ a{
 
                             </ul>
                         </li>
-                        <li <?php   if ($active=="FeePayment" || $active=="GenerateTutionFeeReceipt" || $active=="DiscountApproval"|| $active=="FinancialRecord") {
+                        <li <?php   if ($active=="FeePayment" || $active=="GenerateTutionFeeReceipt" || $active=="DiscountApproval"|| $active=="FinancialRecord" || $active=="DeleteFeeBill"|| $active=="UpdateFeeBill") {
                            echo 'class="sidebar-item active has-sub"';
                        } else {
                            echo 'class="sidebar-item has-sub"';
@@ -268,7 +268,7 @@ a{
                             <i class="bi bi-cash-coin"></i>
                                 <span>Fee Payment</span>
                             </a>
-                            <ul <?php   if ($active=="FeePayment"  || $active=="GenerateTutionFeeReceipt" || $active=="DiscountApproval"|| $active=="FinancialRecord") {
+                            <ul <?php   if ($active=="FeePayment"  || $active=="GenerateTutionFeeReceipt" || $active=="DiscountApproval"|| $active=="FinancialRecord" || $active=="DeleteFeeBill"|| $active=="UpdateFeeBill") {
                            echo 'class="submenu active"';
                        } else {
                            echo 'class="submenu "';
@@ -287,6 +287,15 @@ a{
                                 <li class="submenu-item ">
                                     <a href="GenerateTutionFeeReceipt">Print Fee Receipt </a>
                                 </li>
+                                <li class="submenu-item ">
+                                    <a href="UpdateFeeBill">Update Fee Receipt </a>
+                                </li>
+                               <?php if($username=="administrator"||$username=="principal"){ ?>
+                                        
+                                <li class="submenu-item ">
+                                    <a href="DeleteFeeBill">Delete Fee Receipt </a>
+                                </li>
+                                <?php }?>
                                 
                             </ul>
                         </li>

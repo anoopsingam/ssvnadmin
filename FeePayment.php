@@ -321,7 +321,7 @@
                                                     <div class="col-sm"><label for="billing_date">Billing Date</label><input style="width: min-content;" class="form-control" readonly type="text" value="<?php echo date("d-m-Y"); ?>" name="billing_date" id="billing_date" /></div>
                                                 </div>
 
-                        <input type="text" name="student_mail" value="<?php echo $data['fatheremail']?>"  id="">
+                        <input type="text" name="student_mail" hidden value="<?php echo $data['fatheremail']?>"  id="">
                        
                         <div class="row">
                             <div class="col-sm"><label for="due_date">Due Date</label><input style="width: min-content;" class="m-3 form-control" dateformat="dd-MMM-yyyy" type="date" name="due_date" required id="due_date" /></div>

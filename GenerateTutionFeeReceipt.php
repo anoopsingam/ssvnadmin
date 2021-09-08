@@ -132,10 +132,15 @@
                <td><?php echo $row['student_name']?></td>
                <td><?php echo $row['student_class']?></td>
                <td><?php echo $row['bill_no']?></td>
-               <td><?php if(is_numeric($row['transport_fee_paying'])){ $trbal=$row['transport_fee_paying']; }else{
-                   $trbal=0;
-               } echo $row['paying_fee']+$trbal;?></td>
-               <td><?php echo $row['balance_amount']+$row['transport_fee_balance']?></td>
+               <td><?php  if($row['paying_fee']=="CANCELLED"){echo "Bill Cancelled";}else{
+                   if (is_numeric($row['transport_fee_paying'])) {
+                       $trbal=$row['transport_fee_paying'];
+                   } else {
+                       $trbal=0;
+                   }
+                   echo $row['paying_fee']+$trbal;
+               }?></td>
+               <td><?php if($row['paying_fee']=="CANCELLED"){echo "Bill Cancelled";}else{ echo $row['balance_amount']+$row['transport_fee_balance']; }?></td>
                <td><?php echo $row['ubs_fee_paying']?></td>
                <td><?php echo $row['ubs_fee_balance']?></td>
                <td><?php echo $row['installment']?></td>
